@@ -80,13 +80,14 @@ export function ServiceCard({
       </div>
       <h3 className="mt-5 text-lg font-bold text-primary">{title}</h3>
       <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{blurb}</p>
-      <Link
-        to="/services"
-        hash={href}
+      <a
+        href={`https://wa.me/+919908043567?text=${encodeURIComponent(`Hello! I'm interested in the ${title} service.`)}`}
+        target="_blank"
+        rel="noopener noreferrer"
         className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-accent-foreground"
       >
         Learn More <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-      </Link>
+      </a>
     </article>
   );
 }

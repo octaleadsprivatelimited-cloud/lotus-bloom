@@ -30,7 +30,7 @@ import {
   testimonials,
   whyChooseUs,
 } from "@/data/site";
-import heroImg from "@/assets/hero-inspector.jpg";
+
 import aboutImg from "@/assets/about-inspector.jpg";
 import roofImg from "@/assets/blog-roof.jpg";
 import constructionImg from "@/assets/blog-construction.jpg";
@@ -72,65 +72,40 @@ function Index() {
     <>
       {/* HERO */}
       <section className="relative isolate overflow-hidden">
-        <img
-          src={heroImg}
-          alt="Home inspector reviewing a house exterior"
-          width={1920}
-          height={1080}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="absolute inset-0 -z-10 size-full object-cover"
-        />
-        <div
-          className="absolute inset-0 -z-10"
-          style={{ background: "var(--gradient-hero)" }}
-          aria-hidden="true"
-        />
+        >
+          <source src="/lotus-home-inspection.mp4" type="video/mp4" />
+        </video>
+
         <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-          <Reveal className="max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-accent">
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-blue-300">
               Serving homeowners across {site.state}
             </p>
-            <h1 className="mt-4 text-4xl font-extrabold leading-tight text-primary-foreground sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
               Statewide Home Inspection Services You Can Trust
             </h1>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/85 sm:text-lg">
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg">
               Thorough, certified and completely unbiased inspections before you buy, sell or
               build. Wherever you are in {site.state}, we give you the full picture — in writing,
               with photos, fast.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild variant="accent" size="xl">
+              <Button asChild variant="default" size="xl" className="bg-blue-600 hover:bg-blue-700 text-white border-0">
                 <Link to="/book">Book an Inspection</Link>
               </Button>
-              <Button asChild variant="onDark" size="xl">
+              <Button asChild size="xl" className="bg-yellow-400 text-slate-900 hover:bg-yellow-500 border-0 font-bold">
                 <a href={site.phoneHref}>
                   <Phone className="size-4" /> Call {site.phone}
                 </a>
               </Button>
             </div>
-          </Reveal>
-
-          <Reveal delay={150} className="mt-14">
-            <div className="grid gap-6 rounded-2xl border border-primary-foreground/20 bg-primary-foreground/10 p-7 backdrop-blur-sm sm:grid-cols-3">
-              {stats.slice(0, 3).map((s) => (
-                <div key={s.label} className="text-center">
-                  <p className="text-3xl font-extrabold text-accent sm:text-4xl">{s.value}</p>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground/80">
-                    {s.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
-              {["InterNACHI", "ASHI Member", "State Licensed", "Fully Insured"].map((c) => (
-                <span
-                  key={c}
-                  className="rounded-full border border-primary-foreground/25 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-primary-foreground/80"
-                >
-                  {c}
-                </span>
-              ))}
-            </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -163,6 +138,30 @@ function Index() {
               <Link to="/about">More About Us</Link>
             </Button>
           </Reveal>
+        </div>
+      </section>
+
+      {/* PROFESSIONAL STATS BANNER */}
+      <section className="relative py-24 overflow-hidden">
+        <img
+          src={constructionImg}
+          alt="Home Inspection Under Construction"
+          className="absolute inset-0 size-full object-cover -z-20 object-center"
+        />
+        <div className="absolute inset-0 bg-slate-900/85 -z-10" />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+            {stats.map((s, i) => (
+              <Reveal key={s.label} delay={i * 100} className="flex flex-col items-center justify-center">
+                <span className="text-5xl lg:text-6xl font-black text-white mb-4 drop-shadow-lg">
+                  {s.value}
+                </span>
+                <span className="text-sm font-bold text-blue-300 uppercase tracking-widest drop-shadow-sm">
+                  {s.label}
+                </span>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -247,9 +246,7 @@ function Index() {
               </Reveal>
             ))}
           </div>
-          <Reveal className="mt-12">
-            <StatsBar items={stats} />
-          </Reveal>
+
         </div>
       </section>
 
@@ -277,36 +274,7 @@ function Index() {
         </div>
       </section>
 
-      {/* SERVICE AREAS */}
-      <section id="service-areas" className="bg-primary-deep py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            inverted
-            eyebrow="Service Areas"
-            title={`Proudly Serving Homeowners Across ${site.state}`}
-            intro="Our inspectors are spread across the state, so you get local knowledge with statewide consistency."
-          />
-          <Reveal className="mt-12">
-            <div className="flex flex-wrap justify-center gap-3">
-              {serviceAreas.map((city) => (
-                <span
-                  key={city}
-                  className="rounded-full border border-primary-foreground/20 bg-primary-foreground/10 px-5 py-2.5 text-sm font-medium text-primary-foreground/90"
-                >
-                  {city}
-                </span>
-              ))}
-            </div>
-            <p className="mt-8 text-center text-sm text-primary-foreground/70">
-              Don't see your town? We travel statewide —{" "}
-              <a href={site.phoneHref} className="font-semibold text-accent hover:underline">
-                give us a call
-              </a>
-              .
-            </p>
-          </Reveal>
-        </div>
-      </section>
+
 
       {/* TESTIMONIALS */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
@@ -323,70 +291,49 @@ function Index() {
         </div>
       </section>
 
-      {/* RESOURCES */}
-      <section id="resources" className="bg-surface py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Resources"
-            title="Home Inspection Tips & Resources"
-            intro="Practical guidance from our inspectors for buyers, sellers and homeowners."
-          />
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {posts.map((p, i) => (
-              <Reveal key={p.slug} delay={i * 90}>
-                <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]">
-                  <img
-                    src={postImages[p.image]}
-                    alt={p.title}
-                    width={900}
-                    height={600}
-                    loading="lazy"
-                    className="h-48 w-full object-cover"
-                  />
-                  <div className="flex flex-1 flex-col p-6">
-                    <div className="flex items-center gap-3 text-xs">
-                      <span className="rounded-full bg-secondary px-3 py-1 font-semibold text-primary">
-                        {p.category}
-                      </span>
-                      <span className="text-muted-foreground">{p.date}</span>
-                    </div>
-                    <h3 className="mt-3 text-base font-bold text-primary">{p.title}</h3>
-                    <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-                      {p.excerpt}
-                    </p>
-                    <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                      Read More <ArrowRight className="size-4" />
-                    </span>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-          <div className="mt-10 text-center">
-            <Button variant="outline" size="xl">
-              View All Articles
-            </Button>
-          </div>
-        </div>
-      </section>
+
 
       {/* FAQ */}
-      <section className="mx-auto max-w-4xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-        <SectionHeading eyebrow="FAQ" title="Frequently Asked Questions" />
-        <Reveal className="mt-10">
-          <Accordion type="single" collapsible className="w-full">
-            {faqs.map((f, i) => (
-              <AccordionItem key={f.q} value={`item-${i}`}>
-                <AccordionTrigger className="text-left text-base font-semibold text-primary">
-                  {f.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
-                  {f.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </Reveal>
+      <section className="bg-surface py-20 lg:py-32 border-t border-border">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+            <div className="lg:col-span-5">
+              <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">FAQ</h2>
+              <h3 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight mb-6">
+                Frequently Asked Questions
+              </h3>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                Everything you need to know about our inspection process, scheduling, and what to expect from your final report.
+              </p>
+              <div className="p-6 bg-card border border-border flex flex-col items-start gap-4">
+                <h4 className="font-bold text-foreground">Still have questions?</h4>
+                <p className="text-sm text-muted-foreground">
+                  Our team is available to help. Reach out directly and we'll get back to you right away.
+                </p>
+                <Button asChild variant="default" className="bg-primary text-white hover:bg-primary-deep rounded-none mt-2">
+                  <Link to="/contact">Contact Support</Link>
+                </Button>
+              </div>
+            </div>
+            
+            <div className="lg:col-span-7 lg:pl-12">
+              <Reveal>
+                <Accordion type="single" collapsible className="w-full">
+                  {faqs.map((f, i) => (
+                    <AccordionItem key={f.q} value={`item-${i}`} className="border-b border-border py-2">
+                      <AccordionTrigger className="text-left text-base font-bold text-slate-900 hover:text-primary transition-colors hover:no-underline">
+                        {f.q}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-sm leading-relaxed text-slate-600 pb-6 pt-2">
+                        {f.a}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </Reveal>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* FINAL CTA */}

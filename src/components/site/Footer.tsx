@@ -1,131 +1,64 @@
-import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Linkedin, Mail, MapPinned, Phone } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { LotusMark } from "./Logo";
-import { services, site } from "@/data/site";
+import { site } from "@/data/site";
+import { Logo } from "./Logo";
 
 export function Footer() {
-  const [sent, setSent] = useState(false);
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary-deep text-primary-foreground">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <div className="flex items-center gap-2.5">
-              <LotusMark className="h-9 w-9 text-accent" />
-              <span className="text-base font-extrabold">Lotus Home Inspection</span>
+    <footer className="bg-slate-950 text-slate-300 py-16 border-t border-slate-900">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+          
+          {/* Brand & Info */}
+          <div className="md:col-span-1 space-y-6">
+            <div className="bg-white inline-block p-2">
+              <Logo className="text-slate-950 w-32" />
             </div>
-            <p className="mt-4 max-w-xs text-sm text-primary-foreground/70">{site.tagline}</p>
-            <div className="mt-5 flex gap-3">
-              {[Facebook, Instagram, Linkedin].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  aria-label="Social profile"
-                  className="inline-flex size-9 items-center justify-center rounded-full bg-primary-foreground/10 transition-colors hover:bg-accent hover:text-accent-foreground"
-                >
-                  <Icon className="size-4" />
-                </a>
-              ))}
-            </div>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              {site.tagline} We provide thorough and fully certified inspections across the state.
+            </p>
           </div>
 
+          {/* Quick Links */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.16em] text-accent">Quick Links</h3>
-            <ul className="mt-4 space-y-2.5 text-sm text-primary-foreground/80">
-              {[
-                { label: "Home", to: "/" },
-                { label: "About Us", to: "/about" },
-                { label: "Services", to: "/services" },
-                { label: "Book Inspection", to: "/book" },
-                { label: "Contact", to: "/contact" },
-              ].map((l) => (
-                <li key={l.label}>
-                  <Link to={l.to} className="transition-colors hover:text-accent">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
+            <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">Quick Links</h4>
+            <ul className="space-y-3 text-sm">
+              <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
+              <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
+              <li><Link to="/services" className="hover:text-white transition-colors">Services</Link></li>
+              <li><Link to="/resources" className="hover:text-white transition-colors">Resources</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
 
+          {/* Contact Info */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.16em] text-accent">Services</h3>
-            <ul className="mt-4 space-y-2.5 text-sm text-primary-foreground/80">
-              {services.map((s) => (
-                <li key={s.slug}>
-                  <Link
-                    to="/services"
-                    hash={s.slug}
-                    className="transition-colors hover:text-accent"
-                  >
-                    {s.title}
-                  </Link>
-                </li>
-              ))}
+            <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">Contact Us</h4>
+            <ul className="space-y-3 text-sm">
+              <li><a href={site.phoneHref} className="hover:text-white transition-colors">{site.phone}</a></li>
+              <li><a href={`mailto:${site.email}`} className="hover:text-white transition-colors">{site.email}</a></li>
+              <li className="pt-2 text-slate-400">
+                MVP Colony<br />
+                Visakhapatnam, AP
+              </li>
             </ul>
           </div>
 
+          {/* Legal */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.16em] text-accent">Get In Touch</h3>
-            <ul className="mt-4 space-y-3 text-sm text-primary-foreground/80">
-              <li>
-                <a href={site.phoneHref} className="flex items-center gap-2 hover:text-accent">
-                  <Phone className="size-4" /> {site.phone}
-                </a>
-              </li>
-              <li>
-                <a href={`mailto:${site.email}`} className="flex items-center gap-2 hover:text-accent">
-                  <Mail className="size-4" /> {site.email}
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <MapPinned className="size-4" /> Statewide Service
-              </li>
+            <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">Legal</h4>
+            <ul className="space-y-3 text-sm">
+              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
             </ul>
-
-            <form
-              className="mt-5 flex gap-2"
-              onSubmit={(e) => {
-                e.preventDefault();
-                setSent(true);
-              }}
-            >
-              <label htmlFor="footer-email" className="sr-only">
-                Email address
-              </label>
-              <Input
-                id="footer-email"
-                type="email"
-                required
-                placeholder="Your email"
-                className="border-primary-foreground/25 bg-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/50"
-              />
-              <Button type="submit" variant="accent">
-                Send
-              </Button>
-            </form>
-            {sent && (
-              <p className="mt-2 text-xs text-accent">Thanks — we'll be in touch shortly.</p>
-            )}
           </div>
+
         </div>
-      </div>
 
-      <div className="border-t border-primary-foreground/15">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-5 text-xs text-primary-foreground/65 sm:flex-row sm:px-6 lg:px-8">
-          <p>© {new Date().getFullYear()} Lotus Home Inspection. All rights reserved.</p>
-          <div className="flex gap-5">
-            <a href="#" className="hover:text-accent">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-accent">
-              Terms of Service
-            </a>
-          </div>
+        <div className="mt-16 pt-8 border-t border-slate-800 text-sm text-slate-500 text-center flex flex-col md:flex-row justify-between items-center">
+          <p>&copy; {currentYear} {site.name}. All rights reserved.</p>
+          <p className="mt-2 md:mt-0">Inspired by Dell.com</p>
         </div>
       </div>
     </footer>

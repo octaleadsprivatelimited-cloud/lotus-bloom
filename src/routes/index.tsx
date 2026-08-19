@@ -215,7 +215,7 @@ function Index() {
           title="Comprehensive Inspection Services, Wherever You're Buying or Building"
           intro="Every inspection is performed by a certified member of our team and delivered as a photo-rich digital report."
         />
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-2 lg:grid-cols-2 max-w-5xl mx-auto">
           {services.map((s, i) => (
             <Reveal key={s.slug} delay={(i % 3) * 90}>
               <ServiceCard

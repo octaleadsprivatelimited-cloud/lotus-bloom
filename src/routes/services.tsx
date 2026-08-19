@@ -29,7 +29,7 @@ function Services() {
       {/* Main Content */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
         <SectionHeading eyebrow="What We Offer" title="Comprehensive Inspection Services" />
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-2 lg:grid-cols-2 max-w-5xl mx-auto">
           {services.map((s) => (
             <ServiceCard
               key={s.slug}

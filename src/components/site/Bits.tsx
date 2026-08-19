@@ -71,7 +71,7 @@ export function ServiceCard({
   return (
     <article className="group flex h-full flex-col rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] overflow-hidden">
       {image && (
-        <div className="h-48 w-full overflow-hidden border-b border-border">
+        <div className="h-28 sm:h-48 w-full overflow-hidden border-b border-border">
           <img 
             src={image} 
             alt={title} 
@@ -79,26 +79,26 @@ export function ServiceCard({
           />
         </div>
       )}
-      <div className="flex h-full flex-col p-6 sm:p-7">
-        <div className="flex items-start justify-between gap-3">
-          <span className="inline-flex size-12 items-center justify-center rounded-xl bg-secondary text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-            <Icon name={icon} className="size-6" />
+      <div className="flex h-full flex-col p-4 sm:p-7">
+        <div className="flex items-start justify-between gap-2 sm:gap-3">
+          <span className="inline-flex size-10 sm:size-12 shrink-0 items-center justify-center rounded-xl bg-secondary text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+            <Icon name={icon} className="size-5 sm:size-6" />
           </span>
           {addOn && (
-            <span className="rounded-full bg-gold/25 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-primary-deep">
+            <span className="hidden sm:inline-flex rounded-full bg-gold/25 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-primary-deep">
               Available Add-On
             </span>
           )}
         </div>
-        <h3 className="mt-5 text-lg font-bold text-primary">{title}</h3>
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{blurb}</p>
+        <h3 className="mt-3 sm:mt-5 text-sm sm:text-lg font-bold text-primary leading-tight">{title}</h3>
+        <p className="mt-2 flex-1 text-xs sm:text-sm leading-relaxed text-muted-foreground line-clamp-3 sm:line-clamp-none">{blurb}</p>
         <a
           href={`https://wa.me/+919908043567?text=${encodeURIComponent(`Hello! I'm interested in the ${title} service.`)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-accent-foreground"
+          className="mt-3 sm:mt-5 inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-primary transition-colors hover:text-accent-foreground"
         >
-          Learn More <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+          Learn More <ArrowRight className="size-3 sm:size-4 transition-transform group-hover:translate-x-1" />
         </a>
       </div>
     </article>

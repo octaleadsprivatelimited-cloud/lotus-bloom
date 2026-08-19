@@ -6,6 +6,16 @@ import { services } from "@/data/site";
 import heroImg from "@/assets/hero-inspector.webp";
 
 export const Route = createFileRoute("/services")({
+  head: () => ({
+    meta: [
+      { title: "Home Inspection Services in Vizag | Snagging, Seepage, Structural Checks" },
+      { name: "description", content: "Professional home inspection services in Visakhapatnam — new flat snagging, old property check, seepage & dampness detection, post-repair verification, and structural integrity inspection by certified civil engineers." },
+      { name: "keywords", content: "home inspection services Vizag, snagging inspection Visakhapatnam, flat handover inspection Vizag, seepage check Vizag, property inspection services Andhra Pradesh, structural check Vizag, building inspection Visakhapatnam" },
+      { property: "og:title", content: "Home Inspection Services | Lotus Home Inspection Vizag" },
+      { property: "og:description", content: "Snagging, seepage detection, structural checks by certified civil engineers in Visakhapatnam." },
+    ],
+    links: [{ rel: "canonical", href: "https://lotushomeinspection.com/services" }],
+  }),
   component: Services,
 });
 

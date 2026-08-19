@@ -16,6 +16,16 @@ const postImages: Record<string, string> = {
 import heroImg from "@/assets/hero-inspector.webp";
 
 export const Route = createFileRoute("/resources/")({
+  head: () => ({
+    meta: [
+      { title: "Home Inspection Resources & Tips | Vizag Property Buying Guide" },
+      { name: "description", content: "Expert home inspection tips, property buying guides, and maintenance advice for Visakhapatnam homebuyers. Learn about snagging, seepage, hollow tiles, electrical safety, and more." },
+      { name: "keywords", content: "home inspection tips Vizag, property buying guide Visakhapatnam, snagging guide Vizag, seepage problems Vizag, hollow tiles check, electrical safety home India" },
+      { property: "og:title", content: "Resources & Tips | Lotus Home Inspection Vizag" },
+      { property: "og:description", content: "Expert home inspection tips and property buying guides for Visakhapatnam homebuyers." },
+    ],
+    links: [{ rel: "canonical", href: "https://lotushomeinspection.com/resources" }],
+  }),
   component: Resources,
 });
 

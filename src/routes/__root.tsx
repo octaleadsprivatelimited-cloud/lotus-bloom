@@ -14,6 +14,43 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppWidget } from "@/components/site/WhatsAppWidget";
 
+const LOCAL_BUSINESS_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  name: "Lotus Home Inspection",
+  description: "Professional civil home building inspection services in Visakhapatnam (Vizag), Andhra Pradesh. Snagging, seepage detection, structural checks by certified civil engineers.",
+  url: "https://lotushomeinspection.com",
+  telephone: "+919908043567",
+  email: "hello@lotushomeinspection.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "MVP Colony",
+    addressLocality: "Visakhapatnam",
+    addressRegion: "Andhra Pradesh",
+    postalCode: "530017",
+    addressCountry: "IN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 17.7231,
+    longitude: 83.3013,
+  },
+  areaServed: [
+    { "@type": "City", name: "Visakhapatnam" },
+    { "@type": "City", name: "Vizag" },
+    { "@type": "State", name: "Andhra Pradesh" },
+  ],
+  priceRange: "₹₹",
+  openingHours: "Mo-Sa 08:00-18:00",
+  sameAs: [],
+  image: "https://lotushomeinspection.com/favicon.ico",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5",
+    reviewCount: "120",
+    bestRating: "5",
+  },
+};
 
 function NotFoundComponent() {
   return (
@@ -72,26 +109,33 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(  {
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lotus Home Inspection | Certified Civil Home Inspections in Visakhapatnam" },
-      { name: "description", content: "Professional civil home building inspections in Visakhapatnam, Andhra Pradesh. Certified engineers, detailed photo reports in 24 hours." },
+      { title: "Lotus Home Inspection | Best Home Inspection in Visakhapatnam (Vizag)" },
+      { name: "description", content: "Lotus Home Inspection — #1 home inspection service in Visakhapatnam (Vizag). Certified civil engineers for new flat snagging, seepage check, old property inspection. Photo reports in 24 hours. Call +91 99080 43567." },
+      { name: "keywords", content: "home inspection Visakhapatnam, home inspection Vizag, flat inspection Vizag, snagging inspection Visakhapatnam, new apartment inspection Vizag, property inspection Andhra Pradesh, seepage check Vizag, building inspection Vizag, civil inspection Visakhapatnam, home inspector near me Vizag, house inspection Visakhapatnam, structural inspection Vizag, home inspection cost Vizag, best home inspector Vizag, property check before buying Vizag" },
       { name: "author", content: "Lotus Home Inspection" },
-      { property: "og:title", content: "Lotus Home Inspection | Certified Civil Home Inspections" },
-      { property: "og:description", content: "Professional civil home building inspections in Visakhapatnam. Certified engineers, detailed photo reports in 24 hours." },
+      { name: "geo.region", content: "IN-AP" },
+      { name: "geo.placename", content: "Visakhapatnam" },
+      { name: "geo.position", content: "17.7231;83.3013" },
+      { name: "ICBM", content: "17.7231, 83.3013" },
+      { property: "og:title", content: "Lotus Home Inspection | Best Home Inspection in Visakhapatnam" },
+      { property: "og:description", content: "Certified civil home inspection in Vizag. Snagging, seepage, structural checks. Detailed photo reports in 24 hours." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://lotushomeinspection.com" },
+      { property: "og:locale", content: "en_IN" },
+      { property: "og:site_name", content: "Lotus Home Inspection" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@LotusInspection" },
+      { name: "twitter:title", content: "Lotus Home Inspection | Vizag's Best Home Inspectors" },
+      { name: "twitter:description", content: "Certified civil engineers. New flat snagging, seepage checks, structural inspections in Visakhapatnam." },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "canonical", href: "https://lotushomeinspection.com" },
     ],
   }),
   shellComponent: RootShell,
@@ -105,6 +149,10 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_JSONLD) }}
+        />
       </head>
       <body>
         {children}
@@ -127,4 +175,3 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
-

@@ -4,6 +4,16 @@ import aboutImg from "@/assets/about-inspector.webp";
 import heroImg from "@/assets/hero-inspector.webp";
 
 export const Route = createFileRoute("/about")({
+  head: () => ({
+    meta: [
+      { title: "About Lotus Home Inspection | Certified Civil Engineers in Vizag" },
+      { name: "description", content: "Learn about Lotus Home Inspection — Visakhapatnam's trusted team of certified civil engineers providing thorough, unbiased property inspections for homebuyers across Vizag and Andhra Pradesh." },
+      { name: "keywords", content: "about Lotus Home Inspection, certified home inspectors Vizag, civil engineers Visakhapatnam, property inspection team Vizag, trusted home inspection Andhra Pradesh" },
+      { property: "og:title", content: "About Lotus Home Inspection | Vizag's Trusted Inspectors" },
+      { property: "og:description", content: "Certified civil engineers providing thorough, unbiased home inspections across Visakhapatnam." },
+    ],
+    links: [{ rel: "canonical", href: "https://lotushomeinspection.com/about" }],
+  }),
   component: About,
 });
 

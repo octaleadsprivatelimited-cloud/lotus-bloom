@@ -5,6 +5,16 @@ import { Button } from "@/components/ui/button";
 import { Phone, CalendarCheck } from "lucide-react";
 
 export const Route = createFileRoute("/book")({
+  head: () => ({
+    meta: [
+      { title: "Book Home Inspection in Vizag | Schedule Online | Lotus Home Inspection" },
+      { name: "description", content: "Book your home inspection in Visakhapatnam today. Call or WhatsApp +91 99080 43567. Fast scheduling, certified civil engineers, detailed photo reports delivered in 24 hours." },
+      { name: "keywords", content: "book home inspection Vizag, schedule property inspection Visakhapatnam, home inspection appointment Vizag, WhatsApp home inspector Vizag" },
+      { property: "og:title", content: "Book Inspection | Lotus Home Inspection Visakhapatnam" },
+      { property: "og:description", content: "Schedule your home inspection in Vizag. Call or WhatsApp +91 99080 43567." },
+    ],
+    links: [{ rel: "canonical", href: "https://lotushomeinspection.com/book" }],
+  }),
   component: Book,
 });
 

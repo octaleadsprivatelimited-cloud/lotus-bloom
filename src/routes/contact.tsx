@@ -3,6 +3,16 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import heroImg from "@/assets/hero-inspector.webp";
 
 export const Route = createFileRoute("/contact")({
+  head: () => ({
+    meta: [
+      { title: "Contact Lotus Home Inspection | Book Inspection in Vizag" },
+      { name: "description", content: "Contact Lotus Home Inspection in Visakhapatnam. Call +91 99080 43567 or visit our MVP Colony office to schedule your home inspection. Available Mon-Sat across Vizag." },
+      { name: "keywords", content: "contact home inspector Vizag, book home inspection Visakhapatnam, home inspection phone number Vizag, MVP Colony home inspector, schedule inspection Vizag" },
+      { property: "og:title", content: "Contact Us | Lotus Home Inspection Visakhapatnam" },
+      { property: "og:description", content: "Call +91 99080 43567 to schedule your home inspection in Vizag. MVP Colony, Visakhapatnam." },
+    ],
+    links: [{ rel: "canonical", href: "https://lotushomeinspection.com/contact" }],
+  }),
   component: Contact,
 });
 

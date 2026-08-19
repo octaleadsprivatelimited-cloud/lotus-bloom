@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SectionHeading, ServiceCard } from "@/components/site/Bits";
+import { Button } from "@/components/ui/button";
+import { Phone } from "lucide-react";
 import { services } from "@/data/site";
 import heroImg from "@/assets/hero-inspector.webp";
 
@@ -41,6 +43,16 @@ function Services() {
               href={`/services/${s.slug}`}
             />
           ))}
+          <article className="group flex h-full flex-col rounded-2xl border-2 border-dashed border-yellow-400 bg-yellow-50/50 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] items-center justify-center text-center p-4 sm:p-10">
+            <Phone className="size-10 sm:size-14 text-yellow-500 mb-3 sm:mb-5" />
+            <h3 className="text-sm sm:text-2xl font-bold text-slate-900 leading-tight">Need a Custom Inspection?</h3>
+            <p className="mt-2 text-xs sm:text-base leading-relaxed text-slate-600 mb-4 sm:mb-6 line-clamp-3 sm:line-clamp-none">
+              Not sure which service you need? Talk to our civil engineers directly for expert advice.
+            </p>
+            <Button asChild size="lg" className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold w-full">
+              <Link to="/contact">Contact Us Now</Link>
+            </Button>
+          </article>
         </div>
       </div>
     </div>

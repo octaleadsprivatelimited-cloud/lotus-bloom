@@ -22,6 +22,7 @@ export const services = [
   {
     slug: "new-apartment-handover",
     icon: "Home",
+    image: "/service_snagging.webp",
     title: "New Flat Handover (Snagging)",
     blurb:
       "Don't take the keys from your builder until we check the finishing, plumbing, and electricals for hidden defects.",
@@ -32,6 +33,7 @@ export const services = [
   {
     slug: "general-home-inspection",
     icon: "ClipboardCheck",
+    image: "/service_old_property.webp",
     title: "Old Property Inspection",
     blurb:
       "Buying a resale flat or independent house? We check for structural safety, major seepage, and old wiring.",
@@ -42,6 +44,7 @@ export const services = [
   {
     slug: "seepage-dampness-check",
     icon: "CloudRain",
+    image: "/service_seepage.webp",
     title: "Seepage & Dampness Check",
     blurb:
       "Water leaks destroy wall paint and cupboards. We use thermal cameras to find the root cause of the moisture.",
@@ -52,6 +55,7 @@ export const services = [
   {
     slug: "post-repair-verification",
     icon: "RefreshCw",
+    image: "/service_post_repair.webp",
     title: "Post-Repair Check",
     blurb:
       "Did the builder or contractor actually fix the problems? We revisit your home to verify the repair quality.",
@@ -62,6 +66,7 @@ export const services = [
   {
     slug: "structural-integrity-check",
     icon: "Building",
+    image: "/service_structural.webp",
     title: "Structural Integrity Check",
     blurb:
       "Ensure the core structure of your home is safe, stable, and built to withstand the test of time.",

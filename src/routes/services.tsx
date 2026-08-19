@@ -34,6 +34,7 @@ function Services() {
             <ServiceCard
               key={s.slug}
               icon={s.icon}
+              image={s.image}
               title={s.title}
               blurb={s.blurb}
               addOn={s.addOn}

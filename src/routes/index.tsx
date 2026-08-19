@@ -220,6 +220,7 @@ function Index() {
             <Reveal key={s.slug} delay={(i % 3) * 90}>
               <ServiceCard
                 icon={s.icon}
+                image={s.image}
                 title={s.title}
                 blurb={s.blurb}
                 addOn={s.addOn}

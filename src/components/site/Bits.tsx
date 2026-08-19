@@ -55,39 +55,52 @@ export function SectionHeading({
 
 export function ServiceCard({
   icon,
+  image,
   title,
   blurb,
   addOn,
   href,
 }: {
   icon: string;
+  image?: string;
   title: string;
   blurb: string;
   addOn?: boolean;
   href: string;
 }) {
   return (
-    <article className="group flex h-full flex-col rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]">
-      <div className="flex items-start justify-between gap-3">
-        <span className="inline-flex size-12 items-center justify-center rounded-xl bg-secondary text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-          <Icon name={icon} className="size-6" />
-        </span>
-        {addOn && (
-          <span className="rounded-full bg-gold/25 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-primary-deep">
-            Available Add-On
+    <article className="group flex h-full flex-col rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] overflow-hidden">
+      {image && (
+        <div className="h-48 w-full overflow-hidden border-b border-border">
+          <img 
+            src={image} 
+            alt={title} 
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" 
+          />
+        </div>
+      )}
+      <div className="flex h-full flex-col p-6 sm:p-7">
+        <div className="flex items-start justify-between gap-3">
+          <span className="inline-flex size-12 items-center justify-center rounded-xl bg-secondary text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+            <Icon name={icon} className="size-6" />
           </span>
-        )}
+          {addOn && (
+            <span className="rounded-full bg-gold/25 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-primary-deep">
+              Available Add-On
+            </span>
+          )}
+        </div>
+        <h3 className="mt-5 text-lg font-bold text-primary">{title}</h3>
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{blurb}</p>
+        <a
+          href={`https://wa.me/+919908043567?text=${encodeURIComponent(`Hello! I'm interested in the ${title} service.`)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-accent-foreground"
+        >
+          Learn More <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+        </a>
       </div>
-      <h3 className="mt-5 text-lg font-bold text-primary">{title}</h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{blurb}</p>
-      <a
-        href={`https://wa.me/+919908043567?text=${encodeURIComponent(`Hello! I'm interested in the ${title} service.`)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-accent-foreground"
-      >
-        Learn More <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-      </a>
     </article>
   );
 }

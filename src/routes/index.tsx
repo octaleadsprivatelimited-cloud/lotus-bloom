@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, Phone, ChevronDown, ChevronUp } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -68,6 +69,8 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const [activeProcess, setActiveProcess] = useState<number | null>(null);
+
   return (
     <>
       {/* HERO */}
@@ -110,7 +113,7 @@ function Index() {
       </section>
 
       {/* ABOUT */}
-      <section className="py-20 lg:py-24 border-b border-border">
+      <section className="pt-20 lg:pt-24 pb-8 lg:pb-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden rounded-[2.5rem] p-6 sm:p-12 lg:p-16 border border-border shadow-sm">
             <img
@@ -155,7 +158,7 @@ function Index() {
 
 
       {/* PROCESS */}
-      <section className="py-20 lg:py-24 border-b border-border">
+      <section className="pt-8 lg:pt-10 pb-20 lg:pb-24 border-b border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden rounded-[2.5rem] p-6 sm:p-12 lg:p-16 border border-border shadow-sm">
             <img
@@ -172,17 +175,31 @@ function Index() {
                 intro="From the first walkthrough to the final report, you always know where things stand."
               />
               <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                {processSteps.map((s, i) => (
+                {processSteps.map((s, i) => {
+                  const isOpen = activeProcess === i;
+                  return (
                   <Reveal key={s.title} delay={i * 90}>
-                    <div className="h-full rounded-2xl border border-white/30 bg-black/40 backdrop-blur-md p-7 text-center shadow-xl transition-all hover:-translate-y-1 hover:bg-black/50 hover:border-white/50 group">
-                      <span className="mx-auto inline-flex size-14 items-center justify-center rounded-2xl bg-white/20 text-white shadow-inner border border-white/10 transition-colors group-hover:bg-primary group-hover:border-primary">
-                        <Icon name={s.icon} className="size-6" />
-                      </span>
-                      <h3 className="mt-5 text-lg font-bold text-white drop-shadow-md">{s.title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-white/85 drop-shadow-sm">{s.text}</p>
+                    <div 
+                      onClick={() => setActiveProcess(isOpen ? null : i)}
+                      className="cursor-pointer sm:cursor-default h-full rounded-[2rem] sm:rounded-2xl border border-white/30 bg-black/40 backdrop-blur-md p-3 px-5 sm:p-7 text-center shadow-xl transition-all sm:hover:-translate-y-1 hover:bg-black/50 hover:border-white/50 group flex flex-col items-center"
+                    >
+                      <div className="flex w-full items-center justify-between sm:flex-col sm:justify-center">
+                        <span className="shrink-0 inline-flex size-10 sm:size-14 items-center justify-center rounded-2xl sm:rounded-2xl bg-white/20 text-white shadow-inner border border-white/10 transition-colors sm:group-hover:bg-primary sm:group-hover:border-primary">
+                          <Icon name={s.icon} className="size-4 sm:size-6" />
+                        </span>
+                        <h3 className="text-left sm:text-center ml-4 sm:ml-0 sm:mt-5 text-sm sm:text-lg font-bold text-white drop-shadow-md flex-1">{s.title}</h3>
+                        
+                        <span className="sm:hidden text-white/60 ml-2">
+                          {isOpen ? <ChevronUp className="size-4" /> : <ChevronDown className="size-4" />}
+                        </span>
+                      </div>
+                      
+                      <div className={`overflow-hidden transition-all duration-300 w-full ${isOpen ? 'max-h-40 mt-3 opacity-100' : 'max-h-0 opacity-0 sm:max-h-40 sm:mt-2 sm:opacity-100'}`}>
+                        <p className="text-xs sm:text-sm leading-relaxed text-white/85 drop-shadow-sm text-left sm:text-center">{s.text}</p>
+                      </div>
                     </div>
                   </Reveal>
-                ))}
+                )})}
               </div>
           </div>
         </div>
@@ -289,19 +306,46 @@ function Index() {
 
 
       {/* TESTIMONIALS */}
-      <section className="bg-surface py-20 lg:py-24 border-b border-border">
+      <section className="bg-surface py-20 lg:py-24 border-b border-border overflow-hidden">
+        <style>{`
+          @keyframes mobileMarquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-mobile-marquee {
+            animation: mobileMarquee 30s linear infinite;
+            width: max-content;
+          }
+          .animate-mobile-marquee:hover,
+          .animate-mobile-marquee:active {
+            animation-play-state: paused;
+          }
+        `}</style>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
-          eyebrow="Testimonials"
-          title="What Our Clients Say"
-        />
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {testimonials.map((t, i) => (
-            <Reveal key={t.name} delay={(i % 4) * 80}>
-              <TestimonialCard {...t} />
-            </Reveal>
-          ))}
+            eyebrow="Testimonials"
+            title="What Our Clients Say"
+          />
+          
+          {/* Desktop Grid */}
+          <div className="mt-12 hidden md:grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {testimonials.map((t, i) => (
+              <Reveal key={t.name} delay={(i % 4) * 80}>
+                <TestimonialCard {...t} />
+              </Reveal>
+            ))}
+          </div>
         </div>
+
+        {/* Mobile Scrolling Marquee */}
+        <div className="mt-10 md:hidden w-full relative">
+          <div className="flex animate-mobile-marquee gap-5 pl-5 cursor-pointer">
+             {[...testimonials, ...testimonials].map((t, idx) => (
+               <div key={`${t.name}-${idx}`} className="w-[85vw] max-w-[320px] shrink-0">
+                 <TestimonialCard {...t} />
+               </div>
+             ))}
+          </div>
         </div>
       </section>
 

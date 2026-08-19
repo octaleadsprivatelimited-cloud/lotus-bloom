@@ -20,7 +20,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 100);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -29,10 +29,11 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-4 z-50 w-full transition-all duration-300 px-4 sm:px-6 lg:px-8",
+        "fixed z-50 w-full transition-all duration-300",
+        scrolled ? "top-0 bg-white/95 backdrop-blur-md shadow-md py-1 lg:py-2" : "top-4 bg-transparent"
       )}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         {/* Left Side Logo */}
         <Link to="/" className="flex items-center gap-2">
           <Logo className="h-8" />

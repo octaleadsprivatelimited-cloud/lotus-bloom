@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CheckCircle2, Eye, Target, Heart } from "lucide-react";
-import aboutImg from "@/assets/about-inspector.jpg";
-import heroImg from "@/assets/hero-inspector.jpg";
+import aboutImg from "@/assets/about-inspector.webp";
+import heroImg from "@/assets/hero-inspector.webp";
 
 export const Route = createFileRoute("/about")({
   component: About,

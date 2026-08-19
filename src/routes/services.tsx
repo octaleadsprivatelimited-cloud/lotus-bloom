@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SectionHeading, ServiceCard } from "@/components/site/Bits";
 import { services } from "@/data/site";
-import heroImg from "@/assets/hero-inspector.jpg";
+import heroImg from "@/assets/hero-inspector.webp";
 
 export const Route = createFileRoute("/services")({
   component: Services,

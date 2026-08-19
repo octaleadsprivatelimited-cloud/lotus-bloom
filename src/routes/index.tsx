@@ -32,9 +32,9 @@ import {
   whyChooseUs,
 } from "@/data/site";
 
-import aboutImg from "@/assets/about-inspector.jpg";
-import roofImg from "@/assets/blog-roof.jpg";
-import constructionImg from "@/assets/blog-construction.jpg";
+import aboutImg from "@/assets/about-inspector.webp";
+import roofImg from "@/assets/blog-roof.webp";
+import constructionImg from "@/assets/blog-construction.webp";
 
 void _PageHero;
 
@@ -70,6 +70,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [activeProcess, setActiveProcess] = useState<number | null>(null);
+  const [activeCoverage, setActiveCoverage] = useState<number | null>(null);
 
   return (
     <>
@@ -117,7 +118,7 @@ function Index() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden rounded-[2.5rem] p-6 sm:p-12 lg:p-16 border border-border shadow-sm">
             <img
-              src="/about-bg.jpeg"
+              src="/about-bg.webp"
               alt="About Lotus Background"
               className="absolute inset-0 size-full object-cover -z-20 object-center"
             />
@@ -162,7 +163,7 @@ function Index() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden rounded-[2.5rem] p-6 sm:p-12 lg:p-16 border border-border shadow-sm">
             <img
-              src="/how-we-help-bg.jpg"
+              src="/how-we-help-bg.webp"
               alt="How We Help Background"
               className="absolute inset-0 size-full object-cover -z-20 object-center"
             />
@@ -248,7 +249,7 @@ function Index() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden rounded-[2.5rem] p-6 sm:p-12 lg:p-16 border border-border shadow-sm">
             <img
-              src="/why-choose-us-bg.jpg"
+              src="/why-choose-us-bg.webp"
               alt="Why Choose Us Background"
               className="absolute inset-0 size-full object-cover -z-20 object-center"
             />
@@ -285,20 +286,34 @@ function Index() {
           title="What a Home Inspection Covers"
           intro="We evaluate every major system of the home, document our findings with photos and rate each issue by urgency so you know what matters most."
         />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {coverage.map((c, i) => (
+        <div className="mt-12 grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {coverage.map((c, i) => {
+            const isOpen = activeCoverage === i;
+            return (
             <Reveal key={c.title} delay={(i % 3) * 80}>
-              <div className="flex h-full items-start gap-4 rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)]">
-                <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-secondary text-primary">
-                  <Icon name={c.icon} className="size-5" />
-                </span>
-                <div>
-                  <h3 className="text-sm font-bold text-primary">{c.title}</h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground">{c.text}</p>
+              <div 
+                onClick={() => setActiveCoverage(isOpen ? null : i)}
+                className="cursor-pointer sm:cursor-default flex flex-col sm:flex-row h-full items-start gap-3 sm:gap-4 rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-[var(--shadow-card)] transition-all"
+              >
+                <div className="flex w-full items-center justify-between sm:w-auto sm:block">
+                  <div className="flex items-center gap-3 sm:block">
+                    <span className="inline-flex size-10 sm:size-11 shrink-0 items-center justify-center rounded-xl bg-secondary text-primary">
+                      <Icon name={c.icon} className="size-4 sm:size-5" />
+                    </span>
+                    <h3 className="text-sm font-bold text-primary sm:hidden">{c.title}</h3>
+                  </div>
+                  <span className="sm:hidden text-primary/60">
+                    {isOpen ? <ChevronUp className="size-4" /> : <ChevronDown className="size-4" />}
+                  </span>
+                </div>
+                
+                <div className={`overflow-hidden transition-all duration-300 w-full ${isOpen ? 'max-h-40 mt-1 opacity-100' : 'max-h-0 opacity-0 sm:max-h-40 sm:mt-0 sm:opacity-100'}`}>
+                  <h3 className="hidden sm:block text-sm font-bold text-primary">{c.title}</h3>
+                  <p className="mt-1 sm:mt-1.5 text-sm text-muted-foreground">{c.text}</p>
                 </div>
               </div>
             </Reveal>
-          ))}
+          )})}
         </div>
         </div>
       </section>

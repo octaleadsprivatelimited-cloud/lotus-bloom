@@ -3,9 +3,9 @@ import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { posts } from "@/data/site";
 
-import roofImg from "@/assets/blog-roof.jpg";
-import constructionImg from "@/assets/blog-construction.jpg";
-import aboutImg from "@/assets/about-inspector.jpg";
+import roofImg from "@/assets/blog-roof.webp";
+import constructionImg from "@/assets/blog-construction.webp";
+import aboutImg from "@/assets/about-inspector.webp";
 
 const postImages: Record<string, string> = {
   roof: roofImg,
@@ -13,7 +13,7 @@ const postImages: Record<string, string> = {
   inspector: aboutImg,
 };
 
-import heroImg from "@/assets/hero-inspector.jpg";
+import heroImg from "@/assets/hero-inspector.webp";
 
 export const Route = createFileRoute("/resources/")({
   component: Resources,

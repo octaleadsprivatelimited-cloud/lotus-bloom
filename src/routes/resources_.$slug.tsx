@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { posts } from "@/data/site";
-import roofImg from "@/assets/blog-roof.jpg";
-import constructionImg from "@/assets/blog-construction.jpg";
-import aboutImg from "@/assets/about-inspector.jpg";
+import roofImg from "@/assets/blog-roof.webp";
+import constructionImg from "@/assets/blog-construction.webp";
+import aboutImg from "@/assets/about-inspector.webp";
 
 const postImages: Record<string, string> = {
   roof: roofImg,

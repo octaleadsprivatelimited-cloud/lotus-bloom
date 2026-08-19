@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
-import heroImg from "@/assets/hero-inspector.jpg";
+import heroImg from "@/assets/hero-inspector.webp";
 
 export const Route = createFileRoute("/contact")({
   component: Contact,

@@ -60,13 +60,13 @@ export const services = [
     addOn: false,
   },
   {
-    slug: "termite-inspection",
-    icon: "Bug",
-    title: "Termite Inspection",
+    slug: "structural-integrity-check",
+    icon: "Building",
+    title: "Structural Integrity Check",
     blurb:
-      "Protect your expensive wooden cupboards and doors from hidden termite attacks.",
+      "Ensure the core structure of your home is safe, stable, and built to withstand the test of time.",
     detail:
-      "Termites are a huge problem for wooden interiors in India. We check door frames, modular kitchens, and wardrobes for signs of active termites or old wood borer damage.",
+      "We inspect columns, beams, and load-bearing walls for severe cracking, uneven settlement, or poor concrete quality. Ideal for under-construction properties or old independent houses.",
     addOn: true,
   },
 ];
@@ -168,7 +168,7 @@ export const testimonials = [
     role: "Resale Buyer in Seethammadhara",
     rating: 5,
     quote:
-      "They found hidden termite damage in the wardrobes that the seller was trying to hide. This saved us a lot of money during negotiation.",
+      "They found hidden wall cracks and poorly plastered ceilings that the seller was trying to hide under fresh paint. This saved us a lot of money on repairs.",
   },
 ];
 
@@ -249,18 +249,18 @@ export const posts = [
     ]
   },
   {
-    slug: "termite-damage-signs",
-    category: "Pest Control",
-    title: "How to Protect Your Expensive Wooden Furniture from Termites",
+    slug: "wall-cracks-types",
+    category: "Civil Work",
+    title: "Understanding Wall Cracks: Which Ones Are Actually Dangerous?",
     date: "May 12, 2026",
-    excerpt: "Termites eat wood from the inside out. Learn the early warning signs before your wardrobes are destroyed.",
+    excerpt: "Not all wall cracks mean your building is going to collapse. Learn how to tell the difference between paint cracks and structural issues.",
     image: "roof",
     content: [
-      "Termites (often called 'white ants' in India) are a silent destroyer. They can eat through an expensive wooden wardrobe or door frame in just a few months.",
-      "Because they eat wood from the inside out, the wood might look perfectly fine on the surface until it suddenly crumbles when you touch it.",
-      "The first sign of a termite infestation is usually a thin 'mud tube' crawling up your wall from the skirting board. Termites use these tubes to travel safely.",
-      "You might also see what looks like tiny piles of sawdust near your wooden furniture. This is actually wood borer dust.",
-      "Always get an anti-termite treatment done before doing your interior woodwork, and get a professional inspection if you are buying a resale property."
+      "When homeowners see a crack in their wall, they often panic. However, many cracks are completely harmless and just a sign of normal settlement or plaster shrinkage.",
+      "Hairline cracks that look like a spider web are usually just in the paint or the top layer of plaster. These can be easily fixed with some putty and fresh paint.",
+      "The cracks you need to worry about are the wide, deep ones that look like a 'staircase' along the brickwork, or diagonal cracks starting from the corners of doors and windows.",
+      "If a crack is wider than a 10-rupee coin or is growing larger over time, it could indicate severe structural movement or foundation settling.",
+      "Our structural integrity inspections identify exactly what kind of cracks your property has and whether they pose a safety risk to your family."
     ]
   }
 ];

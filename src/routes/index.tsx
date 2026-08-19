@@ -74,7 +74,7 @@ function Index() {
   return (
     <>
       {/* HERO */}
-      <section className="relative isolate overflow-hidden">
+      <section className="relative isolate overflow-hidden min-h-[100dvh] flex flex-col justify-center">
         <video
           autoPlay
           loop
@@ -85,7 +85,7 @@ function Index() {
           <source src="/lotus-home-inspection.mp4" type="video/mp4" />
         </video>
 
-        <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+        <div className="mx-auto w-full max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
           <div className="max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-blue-300 drop-shadow-md">
               Serving homeowners across {site.state}
@@ -158,7 +158,7 @@ function Index() {
 
 
       {/* PROCESS */}
-      <section className="pt-8 lg:pt-10 pb-20 lg:pb-24 border-b border-border">
+      <section className="pt-8 lg:pt-10 pb-8 lg:pb-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden rounded-[2.5rem] p-6 sm:p-12 lg:p-16 border border-border shadow-sm">
             <img
@@ -207,7 +207,7 @@ function Index() {
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="bg-white py-20 lg:py-24 border-b border-border">
+      <section id="services" className="bg-white pt-8 lg:pt-10 pb-8 lg:pb-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
           eyebrow="Our Services"
@@ -244,7 +244,7 @@ function Index() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="py-20 lg:py-24 border-b border-border">
+      <section className="pt-8 lg:pt-10 pb-8 lg:pb-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden rounded-[2.5rem] p-6 sm:p-12 lg:p-16 border border-border shadow-sm">
             <img
@@ -278,7 +278,7 @@ function Index() {
       </section>
 
       {/* COVERAGE */}
-      <section className="bg-white py-20 lg:py-24 border-b border-border">
+      <section className="bg-white pt-8 lg:pt-10 pb-8 lg:pb-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
           eyebrow="What's Covered"
@@ -306,7 +306,7 @@ function Index() {
 
 
       {/* TESTIMONIALS */}
-      <section className="bg-surface py-20 lg:py-24 border-b border-border overflow-hidden">
+      <section className="bg-surface pt-8 lg:pt-10 pb-8 lg:pb-10 overflow-hidden">
         <style>{`
           @keyframes mobileMarquee {
             0% { transform: translateX(0); }
@@ -339,9 +339,9 @@ function Index() {
 
         {/* Mobile Scrolling Marquee */}
         <div className="mt-10 md:hidden w-full relative">
-          <div className="flex animate-mobile-marquee gap-5 pl-5 cursor-pointer">
+          <div className="flex animate-mobile-marquee gap-4 pl-4 cursor-pointer">
              {[...testimonials, ...testimonials].map((t, idx) => (
-               <div key={`${t.name}-${idx}`} className="w-[85vw] max-w-[320px] shrink-0">
+               <div key={`${t.name}-${idx}`} className="w-[75vw] max-w-[280px] shrink-0">
                  <TestimonialCard {...t} />
                </div>
              ))}
@@ -352,7 +352,7 @@ function Index() {
 
 
       {/* FAQ */}
-      <section className="bg-white py-20 lg:py-32 border-t border-border">
+      <section className="bg-white pt-8 lg:pt-10 pb-20 lg:pb-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-start">
             <div className="lg:col-span-5">

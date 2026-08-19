@@ -104,23 +104,23 @@ export function TestimonialCard({
   rating: number;
 }) {
   return (
-    <figure className="flex h-full flex-col rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-card)]">
+    <figure className="flex h-full flex-col rounded-[2rem] sm:rounded-2xl border border-border bg-card p-5 sm:p-7 shadow-[var(--shadow-card)]">
       <div className="flex gap-0.5 text-gold">
         {Array.from({ length: rating }).map((_, i) => (
-          <Star key={i} className="size-4 fill-current" aria-hidden="true" />
+          <Star key={i} className="size-3.5 sm:size-4 fill-current" aria-hidden="true" />
         ))}
         <span className="sr-only">{rating} out of 5 stars</span>
       </div>
-      <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-foreground/85">
+      <blockquote className="mt-3 sm:mt-4 flex-1 text-xs sm:text-sm leading-relaxed text-foreground/85">
         “{quote}”
       </blockquote>
-      <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-4">
-        <span className="inline-flex size-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
+      <figcaption className="mt-4 sm:mt-6 flex items-center gap-3 border-t border-border pt-3 sm:pt-4">
+        <span className="inline-flex size-8 sm:size-10 items-center justify-center rounded-full bg-primary text-xs sm:text-sm font-bold text-primary-foreground">
           {name.charAt(0)}
         </span>
         <span>
-          <span className="block text-sm font-semibold text-primary">{name}</span>
-          <span className="block text-xs text-muted-foreground">{role}</span>
+          <span className="block text-xs sm:text-sm font-semibold text-primary">{name}</span>
+          <span className="block text-[10px] sm:text-xs text-muted-foreground">{role}</span>
         </span>
       </figcaption>
     </figure>

@@ -58,7 +58,9 @@ export function Footer() {
 
         <div className="mt-16 pt-8 border-t border-slate-800 text-sm text-slate-500 text-center flex flex-col md:flex-row justify-between items-center">
           <p>&copy; {currentYear} {site.name}. All rights reserved.</p>
-          <p className="mt-2 md:mt-0">Inspired by Dell.com</p>
+          <p className="mt-2 md:mt-0">
+            Developed By <a href="https://www.octaleads.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Octaleads</a>
+          </p>
         </div>
       </div>
     </footer>

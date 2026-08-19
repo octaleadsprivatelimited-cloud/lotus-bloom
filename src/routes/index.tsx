@@ -84,18 +84,18 @@ function Index() {
 
         <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
           <div className="max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-blue-300">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-blue-300 drop-shadow-md">
               Serving homeowners across {site.state}
             </p>
-            <h1 className="mt-4 text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">
               Statewide Home Inspection Services You Can Trust
             </h1>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg">
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/95 sm:text-lg drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] font-medium">
               Thorough, certified and completely unbiased inspections before you buy, sell or
               build. Wherever you are in {site.state}, we give you the full picture — in writing,
               with photos, fast.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap gap-3 drop-shadow-lg">
               <Button asChild variant="default" size="xl" className="bg-blue-600 hover:bg-blue-700 text-white border-0">
                 <Link to="/book">Book an Inspection</Link>
               </Button>
@@ -110,8 +110,17 @@ function Index() {
       </section>
 
       {/* ABOUT */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+      <section className="py-20 lg:py-24 border-b border-border">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-[2.5rem] p-6 sm:p-12 lg:p-16 border border-border shadow-sm">
+            <img
+              src="/about-bg.jpeg"
+              alt="About Lotus Background"
+              className="absolute inset-0 size-full object-cover -z-20 object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-l from-white via-white/80 to-white/20 -z-10" />
+            
+            <div className="grid items-center gap-12 lg:grid-cols-2 relative z-10">
           <Reveal>
             <img
               src={aboutImg}
@@ -139,59 +148,51 @@ function Index() {
             </Button>
           </Reveal>
         </div>
-      </section>
-
-      {/* PROFESSIONAL STATS BANNER */}
-      <section className="relative py-24 overflow-hidden">
-        <img
-          src={constructionImg}
-          alt="Home Inspection Under Construction"
-          className="absolute inset-0 size-full object-cover -z-20 object-center"
-        />
-        <div className="absolute inset-0 bg-slate-900/85 -z-10" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
-            {stats.map((s, i) => (
-              <Reveal key={s.label} delay={i * 100} className="flex flex-col items-center justify-center">
-                <span className="text-5xl lg:text-6xl font-black text-white mb-4 drop-shadow-lg">
-                  {s.value}
-                </span>
-                <span className="text-sm font-bold text-blue-300 uppercase tracking-widest drop-shadow-sm">
-                  {s.label}
-                </span>
-              </Reveal>
-            ))}
-          </div>
+        </div>
         </div>
       </section>
 
+
+
       {/* PROCESS */}
-      <section className="bg-surface py-20">
+      <section className="py-20 lg:py-24 border-b border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="How We Help"
-            title="A Simple, Proven Four-Step Process"
-            intro="From the first walkthrough to the final report, you always know where things stand."
-          />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map((s, i) => (
-              <Reveal key={s.title} delay={i * 90}>
-                <div className="h-full rounded-2xl border border-border bg-card p-7 text-center shadow-[var(--shadow-card)]">
-                  <span className="mx-auto inline-flex size-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-                    <Icon name={s.icon} className="size-6" />
-                  </span>
-                  <h3 className="mt-5 text-base font-bold text-primary">{s.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
-                </div>
-              </Reveal>
-            ))}
+          <div className="relative overflow-hidden rounded-[2.5rem] p-6 sm:p-12 lg:p-16 border border-border shadow-sm">
+            <img
+              src="/how-we-help-bg.jpg"
+              alt="How We Help Background"
+              className="absolute inset-0 size-full object-cover -z-20 object-center"
+            />
+
+            
+            <div className="relative z-10 [&_h2]:text-white [&_h2]:drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] [&_p]:text-white/95 [&_p]:drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] [&_span]:drop-shadow-md">
+              <SectionHeading
+                eyebrow="How We Help"
+                title="A Simple, Proven Four-Step Process"
+                intro="From the first walkthrough to the final report, you always know where things stand."
+              />
+              <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                {processSteps.map((s, i) => (
+                  <Reveal key={s.title} delay={i * 90}>
+                    <div className="h-full rounded-2xl border border-white/30 bg-black/40 backdrop-blur-md p-7 text-center shadow-xl transition-all hover:-translate-y-1 hover:bg-black/50 hover:border-white/50 group">
+                      <span className="mx-auto inline-flex size-14 items-center justify-center rounded-2xl bg-white/20 text-white shadow-inner border border-white/10 transition-colors group-hover:bg-primary group-hover:border-primary">
+                        <Icon name={s.icon} className="size-6" />
+                      </span>
+                      <h3 className="mt-5 text-lg font-bold text-white drop-shadow-md">{s.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-white/85 drop-shadow-sm">{s.text}</p>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
           </div>
+        </div>
         </div>
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-        <SectionHeading
+      <section id="services" className="bg-white py-20 lg:py-24 border-b border-border">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
           eyebrow="Our Services"
           title="Comprehensive Inspection Services, Wherever You're Buying or Building"
           intro="Every inspection is performed by a certified member of our team and delivered as a photo-rich digital report."
@@ -222,37 +223,47 @@ function Index() {
             </Button>
           </CtaBanner>
         </div>
+        </div>
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="bg-surface py-20 lg:py-24">
+      <section className="py-20 lg:py-24 border-b border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Why Choose Us"
-            title="Built Around Trust, Clarity and Speed"
-          />
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <div className="relative overflow-hidden rounded-[2.5rem] p-6 sm:p-12 lg:p-16 border border-border shadow-sm">
+            <img
+              src="/why-choose-us-bg.jpg"
+              alt="Why Choose Us Background"
+              className="absolute inset-0 size-full object-cover -z-20 object-center"
+            />
+            <div className="relative z-10 [&_h2]:text-white [&_h2]:drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] [&_p]:text-white/95 [&_p]:drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] [&_span]:drop-shadow-md">
+              <SectionHeading
+                eyebrow="Why Choose Us"
+                title="Built Around Trust, Clarity and Speed"
+              />
+              <div className="mt-12 grid gap-6 md:grid-cols-2">
             {whyChooseUs.map((w, i) => (
               <Reveal key={w.title} delay={(i % 2) * 90}>
-                <div className="flex h-full gap-5 rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-card)]">
-                  <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-xl bg-accent/20 text-accent-foreground">
-                    <Icon name={w.icon} className="size-6" />
-                  </span>
-                  <div>
-                    <h3 className="text-base font-bold text-primary">{w.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{w.text}</p>
-                  </div>
-                </div>
+                    <div className="flex h-full gap-5 rounded-2xl border border-white/30 bg-black/40 backdrop-blur-md p-7 shadow-xl transition-all hover:-translate-y-1 hover:bg-black/50 hover:border-white/50 group">
+                      <span className="inline-flex size-14 shrink-0 items-center justify-center rounded-2xl bg-white/20 text-white shadow-inner border border-white/10 transition-colors group-hover:bg-primary group-hover:border-primary">
+                        <Icon name={w.icon} className="size-6" />
+                      </span>
+                      <div>
+                        <h3 className="text-lg font-bold text-white drop-shadow-md">{w.title}</h3>
+                        <p className="mt-2 text-sm leading-relaxed text-white/85 drop-shadow-sm">{w.text}</p>
+                      </div>
+                    </div>
               </Reveal>
             ))}
+              </div>
+            </div>
           </div>
-
         </div>
       </section>
 
       {/* COVERAGE */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-        <SectionHeading
+      <section className="bg-white py-20 lg:py-24 border-b border-border">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
           eyebrow="What's Covered"
           title="What a Home Inspection Covers"
           intro="We evaluate every major system of the home, document our findings with photos and rate each issue by urgency so you know what matters most."
@@ -272,13 +283,15 @@ function Index() {
             </Reveal>
           ))}
         </div>
+        </div>
       </section>
 
 
 
       {/* TESTIMONIALS */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-        <SectionHeading
+      <section className="bg-surface py-20 lg:py-24 border-b border-border">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
           eyebrow="Testimonials"
           title="What Our Clients Say"
         />
@@ -289,12 +302,13 @@ function Index() {
             </Reveal>
           ))}
         </div>
+        </div>
       </section>
 
 
 
       {/* FAQ */}
-      <section className="bg-surface py-20 lg:py-32 border-t border-border">
+      <section className="bg-white py-20 lg:py-32 border-t border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-start">
             <div className="lg:col-span-5">

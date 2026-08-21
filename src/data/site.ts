@@ -7,7 +7,7 @@ export const site = {
   state: "Andhra Pradesh",
   phone: "+91 99080 43567",
   phoneHref: "tel:+919908043567",
-  email: "hello@lotushomeinspection.com",
+  email: "info@lotushomeinspection.com",
   tagline: "Clear, simple, and expert home inspections in Visakhapatnam. We find the hidden problems so you don't have to.",
 };
 

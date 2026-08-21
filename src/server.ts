@@ -49,7 +49,15 @@ export default {
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      const normalized = await normalizeCatastrophicSsrResponse(response);
+      
+      if (normalized.status === 200 && normalized.headers.get("content-type")?.includes("text/html")) {
+        const cachedResponse = new Response(normalized.body, normalized);
+        cachedResponse.headers.set("Cache-Control", "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400");
+        return cachedResponse;
+      }
+      
+      return normalized;
     } catch (error) {
       console.error(error);
       return new Response(renderErrorPage(), {

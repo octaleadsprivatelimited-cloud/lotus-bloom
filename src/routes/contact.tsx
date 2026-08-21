@@ -69,8 +69,8 @@ function Contact() {
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-2">Email</h3>
               <p className="text-slate-600 mb-2">Our friendly team is here to help.</p>
-              <a href="mailto:contact@lotus-bloom.com" className="text-primary font-semibold hover:underline">
-                contact@lotus-bloom.com
+              <a href="mailto:info@lotushomeinspection.com" className="text-primary font-semibold hover:underline">
+                info@lotushomeinspection.com
               </a>
             </div>
 

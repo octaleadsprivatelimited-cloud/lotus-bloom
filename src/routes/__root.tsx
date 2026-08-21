@@ -21,7 +21,7 @@ const LOCAL_BUSINESS_JSONLD = {
   description: "Professional civil home building inspection services in Visakhapatnam (Vizag), Andhra Pradesh. Snagging, seepage detection, structural checks by certified civil engineers.",
   url: "https://lotushomeinspection.com",
   telephone: "+919908043567",
-  email: "hello@lotushomeinspection.com",
+  email: "info@lotushomeinspection.com",
   address: {
     "@type": "PostalAddress",
     streetAddress: "MVP Colony",

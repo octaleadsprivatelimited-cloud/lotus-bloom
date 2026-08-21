@@ -54,10 +54,10 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <a
             href={site.phoneHref}
-            className="flex items-center justify-center gap-1.5 h-10 px-4 md:gap-2 md:h-12 md:px-6 rounded-full bg-yellow-400 text-slate-900 font-bold hover:bg-yellow-500 transition-colors shadow-sm text-sm md:text-base"
+            className="flex items-center justify-center gap-1.5 h-10 px-3 sm:px-4 md:gap-2 md:h-12 md:px-6 rounded-full bg-yellow-400 text-slate-900 font-bold hover:bg-yellow-500 transition-colors shadow-sm text-sm md:text-base"
           >
             <Phone className="size-4 md:size-5" />
-            <span>{site.phone}</span>
+            <span className="hidden sm:inline">{site.phone}</span>
           </a>
           <button
             type="button"

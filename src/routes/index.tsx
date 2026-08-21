@@ -103,13 +103,13 @@ function Index() {
               build. Wherever you are in {site.state}, we give you the full picture — in writing,
               with photos, fast.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3 drop-shadow-lg">
-              <Button asChild variant="default" size="xl" className="bg-blue-600 hover:bg-blue-700 text-white border-0">
+            <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3 drop-shadow-lg">
+              <Button asChild variant="default" size="xl" className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white border-0">
                 <Link to="/book">Book an Inspection</Link>
               </Button>
-              <Button asChild size="xl" className="bg-yellow-400 text-slate-900 hover:bg-yellow-500 border-0 font-bold">
+              <Button asChild size="xl" className="w-full sm:w-auto bg-yellow-400 text-slate-900 hover:bg-yellow-500 border-0 font-bold">
                 <a href={site.phoneHref}>
-                  <Phone className="size-4" /> Call {site.phone}
+                  <Phone className="size-4 mr-2" /> Call {site.phone}
                 </a>
               </Button>
             </div>
@@ -219,7 +219,7 @@ function Index() {
           title="Comprehensive Inspection Services, Wherever You're Buying or Building"
           intro="Every inspection is performed by a certified member of our team and delivered as a photo-rich digital report."
         />
-        <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-2 lg:grid-cols-2 max-w-5xl mx-auto">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-2 max-w-5xl mx-auto">
           {services.map((s, i) => (
             <Reveal key={s.slug} delay={(i % 3) * 90}>
               <ServiceCard
@@ -233,10 +233,10 @@ function Index() {
             </Reveal>
           ))}
           <Reveal delay={270}>
-            <article className="group flex h-full flex-col rounded-2xl border-2 border-dashed border-yellow-400 bg-yellow-50/50 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] items-center justify-center text-center p-4 sm:p-10">
+            <article className="group flex h-full flex-col rounded-2xl border-2 border-dashed border-yellow-400 bg-yellow-50/50 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] items-center justify-center text-center p-6 sm:p-10">
               <Phone className="size-10 sm:size-14 text-yellow-500 mb-3 sm:mb-5" />
-              <h3 className="text-sm sm:text-2xl font-bold text-slate-900 leading-tight">Need a Custom Inspection?</h3>
-              <p className="mt-2 text-xs sm:text-base leading-relaxed text-slate-600 mb-4 sm:mb-6 line-clamp-3 sm:line-clamp-none">
+              <h3 className="text-lg sm:text-2xl font-bold text-slate-900 leading-tight">Need a Custom Inspection?</h3>
+              <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-600 mb-4 sm:mb-6">
                 Not sure which service you need? Talk to our civil engineers directly for expert advice.
               </p>
               <Button asChild size="lg" className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold w-full">

@@ -19,9 +19,7 @@ export function Footer() {
         <div className="hidden md:grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand & Info */}
           <div className="md:col-span-1 space-y-6">
-            <div className="bg-white inline-block p-2">
-              <Logo className="text-slate-950 w-32" />
-            </div>
+            <Logo inverted />
             <p className="text-sm text-slate-400 leading-relaxed">
               {site.tagline} We provide thorough and fully certified inspections across the state.
             </p>
@@ -65,9 +63,7 @@ export function Footer() {
         {/* Mobile Footer Accordion */}
         <div className="md:hidden flex flex-col gap-6">
           <div className="space-y-4">
-            <div className="bg-white inline-block p-2">
-              <Logo className="text-slate-950 w-32" />
-            </div>
+            <Logo inverted />
             <p className="text-sm text-slate-400 leading-relaxed">
               {site.tagline} We provide thorough and fully certified inspections across the state.
             </p>

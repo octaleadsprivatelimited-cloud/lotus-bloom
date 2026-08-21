@@ -35,9 +35,7 @@ export function Navbar() {
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         {/* Left Side Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <Logo className="h-8" />
-        </Link>
+        <Logo inverted={!scrolled} />
 
         {/* Center Menu Pill */}
         <nav className="hidden items-center gap-2 lg:flex bg-[#0076CE] rounded-full px-6 h-12 shadow-md border border-blue-500/30">

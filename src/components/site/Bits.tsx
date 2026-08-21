@@ -71,7 +71,7 @@ export function ServiceCard({
   return (
     <article className="group flex h-full flex-col rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] overflow-hidden">
       {image && (
-        <div className="h-28 sm:h-48 w-full overflow-hidden border-b border-border">
+        <div className="aspect-video w-full overflow-hidden border-b border-border bg-slate-50">
           <img 
             src={image} 
             alt={title} 

@@ -3,53 +3,26 @@ import { cn } from "@/lib/utils";
 
 export function LotusMark({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 48 48" aria-hidden="true" className={cn("h-9 w-9", className)}>
-      <path
-        d="M24 6c4.2 4.6 6.3 9.6 6.3 15S28.2 31.4 24 36c-4.2-4.6-6.3-9.6-6.3-15S19.8 10.6 24 6Z"
-        fill="currentColor"
-        opacity="0.95"
+    <div className="bg-white rounded-full p-1.5 shadow-sm inline-flex items-center justify-center border border-slate-200/60">
+      <img
+        src="/logo.png"
+        alt="Lotus Home Inspection"
+        className={cn("h-10 w-auto object-contain", className)}
       />
-      <path
-        d="M24 36c-6 2.6-12 1.6-17-3 3.2-4.6 7.4-7 12.4-7.2 1 3.9 2.6 7.3 4.6 10.2Z"
-        fill="currentColor"
-        opacity="0.6"
-      />
-      <path
-        d="M24 36c6 2.6 12 1.6 17-3-3.2-4.6-7.4-7-12.4-7.2-1 3.9-2.6 7.3-4.6 10.2Z"
-        fill="currentColor"
-        opacity="0.6"
-      />
-      <path
-        d="M24 37.5c-3.9 3-8.4 4.5-13.5 4.5 2.2-3.6 5.4-6 9.6-7.3 1.2 1 2.5 1.9 3.9 2.8Zm0 0c3.9 3 8.4 4.5 13.5 4.5-2.2-3.6-5.4-6-9.6-7.3-1.2 1-2.5 1.9-3.9 2.8Z"
-        fill="currentColor"
-        opacity="0.35"
-      />
-    </svg>
+    </div>
   );
 }
 
-export function Logo({ inverted = false }: { inverted?: boolean }) {
+export function Logo({ inverted = false, className }: { inverted?: boolean; className?: string }) {
   return (
-    <Link to="/" className="flex items-center gap-2.5" aria-label="Lotus Home Inspection home">
-      <LotusMark className={inverted ? "h-9 w-9 text-accent" : "h-9 w-9 text-primary"} />
-      <span className="leading-tight">
-        <span
-          className={cn(
-            "block text-[15px] font-extrabold tracking-tight sm:text-base",
-            inverted ? "text-primary-foreground" : "text-primary",
-          )}
-        >
-          Lotus Home Inspection
-        </span>
-        <span
-          className={cn(
-            "hidden text-[11px] font-medium uppercase tracking-[0.18em] sm:block",
-            inverted ? "text-primary-foreground/70" : "text-muted-foreground",
-          )}
-        >
-          Statewide Service
-        </span>
-      </span>
+    <Link to="/" className={cn("flex items-center group shrink-0", className)} aria-label="Lotus Home Inspection home">
+      <div className="bg-white/95 backdrop-blur-md rounded-full px-4 py-2 shadow-md border border-slate-200/80 transition-transform duration-200 group-hover:scale-105">
+        <img
+          src="/logo.png"
+          alt="Lotus Home Inspection Logo"
+          className="h-8 sm:h-9 md:h-10 w-auto object-contain"
+        />
+      </div>
     </Link>
   );
-}
+}

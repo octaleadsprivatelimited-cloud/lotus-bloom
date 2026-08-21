@@ -79,58 +79,62 @@ function About() {
       </section>
 
       {/* 3. Why We Do This (Mission/Vision Grid) */}
-      <section className="bg-slate-50 py-16 md:py-24 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-24 bg-gradient-to-br from-slate-50 to-blue-50/50 overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-blue-200/40 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+          <div className="absolute top-[20%] right-[-5%] w-72 h-72 bg-purple-200/40 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Header */}
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold text-blue-600 relative inline-block pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-1 after:bg-blue-600 rounded-full">
+          <div className="max-w-3xl mx-auto text-center mb-20">
+            <span className="text-sm font-bold tracking-widest text-blue-600 uppercase mb-3 block">
+              Our Purpose
+            </span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
               Why We Do This
             </h2>
-            <p className="mt-6 text-base text-slate-600 leading-relaxed">
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full mb-8"></div>
+            <p className="text-lg text-slate-600 leading-relaxed">
               We honestly just want to help people move into homes with confidence. 
               Our goal is to eliminate the stress of the unknown by providing clear, unbiased insights.
             </p>
           </div>
           
-          {/* Grid with borders */}
-          <div className="grid md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-gray-200">
+          {/* Grid with Cards */}
+          <div className="grid md:grid-cols-3 gap-8">
             {/* Vision */}
-            <div className="flex items-start gap-4 p-6 md:first:pl-0">
-              <div className="p-3 bg-blue-100 text-blue-600 rounded-xl shrink-0">
-                <Eye className="w-6 h-6" />
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/40 shadow-xl shadow-slate-200/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-200/50 transition-all duration-300 group">
+              <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/30">
+                <Eye className="w-7 h-7" />
               </div>
-              <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Our Vision</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  To be the most trusted home inspection service statewide, setting the standard for quality and transparency in real estate.
-                </p>
-              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">Our Vision</h3>
+              <p className="text-slate-600 leading-relaxed">
+                To be the most trusted home inspection service statewide, setting the standard for quality and transparency in real estate.
+              </p>
             </div>
             
             {/* Mission */}
-            <div className="flex items-start gap-4 p-6">
-              <div className="p-3 bg-blue-100 text-blue-600 rounded-xl shrink-0">
-                <Target className="w-6 h-6" />
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/40 shadow-xl shadow-slate-200/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-200/50 transition-all duration-300 group delay-100">
+              <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-indigo-500/30">
+                <Target className="w-7 h-7" />
               </div>
-              <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Our Mission</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  To empower homebuyers and homeowners with accurate, actionable information, safeguarding their biggest investments.
-                </p>
-              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">Our Mission</h3>
+              <p className="text-slate-600 leading-relaxed">
+                To empower homebuyers and homeowners with accurate, actionable information, safeguarding their biggest investments.
+              </p>
             </div>
 
             {/* Core Values */}
-            <div className="flex items-start gap-4 p-6 md:last:pr-0">
-              <div className="p-3 bg-blue-100 text-blue-600 rounded-xl shrink-0">
-                <Heart className="w-6 h-6" />
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/40 shadow-xl shadow-slate-200/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-200/50 transition-all duration-300 group delay-200">
+              <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-purple-500/30">
+                <Heart className="w-7 h-7" />
               </div>
-              <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Core Values</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  Integrity, Thoroughness, and Clarity. We never compromise on our standards and always put our clients first.
-                </p>
-              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">Core Values</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Integrity, Thoroughness, and Clarity. We never compromise on our standards and always put our clients first.
+              </p>
             </div>
           </div>
         </div>
